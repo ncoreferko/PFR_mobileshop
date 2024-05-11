@@ -1,0 +1,26 @@
+<p><a href="http://localhost:4200/mobile">Go to Mobile Page</a></p>
+
+<div class="login-container">
+    <form class="login-form" [formGroup]="mobileaddForm" (ngSubmit)="onSubmit()">
+        <input formControlName="brand" type="text" placeholder="Brand" required  />
+        <div *ngIf="mobileaddForm.get('brand')?.invalid && (mobileaddForm.get('brand')?.dirty || mobileaddForm.get('brand')?.touched)">
+            <p *ngIf="mobileaddForm.get('brand')?.errors && mobileaddForm.get('brand')?.errors!['required']">Required.</p>
+        </div>
+        <input formControlName="modelName" type="text" placeholder="Name" required/>
+        <div *ngIf="mobileaddForm.get('modelName')?.invalid && (mobileaddForm.get('modelName')?.dirty || mobileaddForm.get('modelName')?.touched)">
+            <p *ngIf="mobileaddForm.get('modelName')?.errors && mobileaddForm.get('modelName')?.errors!['required']">Required.</p>
+        </div>
+        <input formControlName="price" type="number" placeholder="0" required/>
+        <div *ngIf="mobileaddForm.get('price')?.invalid && (mobileaddForm.get('price')?.dirty || mobileaddForm.get('price')?.touched)">
+            <p *ngIf="mobileaddForm.get('price')?.errors && mobileaddForm.get('price')?.errors!['required']">Required.</p>
+        </div>
+        <input formControlName="inStock" type="number" placeholder="0" required/>
+        <div *ngIf="mobileaddForm.get('inStock')?.invalid && (mobileaddForm.get('inStock')?.dirty || mobileaddForm.get('inStock')?.touched)">
+            <p *ngIf="mobileaddForm.get('inStock')?.errors && mobileaddForm.get('inStock')?.errors!['required']">Required.</p>
+        </div>
+        <div class="buttons">
+            <button type="submit">Create</button>
+        </div>
+
+    </form>
+</div>

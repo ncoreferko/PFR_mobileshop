@@ -1,0 +1,19 @@
+<p><a href="http://localhost:4200/review">Reviews</a></p>
+
+<div class="login-container">
+    <form class="login-form" [formGroup]="reviewaddForm" (ngSubmit)="onSubmit()">
+        <input formControlName="review" type="text" placeholder="review" required  />
+        <div *ngIf="reviewaddForm.get('review')?.invalid && (reviewaddForm.get('review')?.dirty || reviewaddForm.get('review')?.touched)">
+            <p *ngIf="reviewaddForm.get('review')?.errors && reviewaddForm.get('review')?.errors!['required']">Required.</p>
+        </div>
+        <input formControlName="modelName" type="text" placeholder="productName" required/>
+        <div *ngIf="reviewaddForm.get('modelName')?.invalid && (reviewaddForm.get('modelName')?.dirty || reviewaddForm.get('modelName')?.touched)">
+            <p *ngIf="reviewaddForm.get('modelName')?.errors && reviewaddForm.get('modelName')?.errors!['required']">Required.</p>
+        </div>
+        <input formControlName="name" type="text" placeholder="Name" />
+        <div class="buttons">
+            <button type="submit">Create</button>
+        </div>
+
+    </form>
+</div>
